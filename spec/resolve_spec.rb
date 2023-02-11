@@ -17,7 +17,7 @@ describe Resolve do
       end
     end
   end
-  
+
   describe '#reverse' do
     context 'when the argument is a word' do
       it 'returns the reversed word' do
