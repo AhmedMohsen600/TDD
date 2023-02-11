@@ -2,22 +2,26 @@ require 'rspec'
 require_relative '../resolve'
 
 describe Resolve do
+  let(:subject) { described_class.new }
+
   describe '#factorial' do
-    subject { described_class.new.factorial(num) }
-
-    context 'with a positive integer' do
-      let(:num) { 5 }
-
-      it 'calculates the factorial' do
-        expect(subject).to eq(120)
+    context 'when the argument is a positive integer' do
+      it 'returns the factorial of the argument' do
+        expect(subject.factorial(5)).to eq(120)
       end
     end
 
-    context 'with a negative integer' do
-      let(:num) { -5 }
-
-      it 'raises an error' do
-        expect { subject }.to raise_error('Negative integer not allowed')
+    context 'when the argument is a negative integer' do
+      it 'raises an error with a message' do
+        expect { subject.factorial(-1) }.to raise_error(RuntimeError, 'Negative integer not allowed')
+      end
+    end
+  end
+  
+  describe '#reverse' do
+    context 'when the argument is a word' do
+      it 'returns the reversed word' do
+        expect(subject.reverse('hello')).to eq('olleh')
       end
     end
   end
