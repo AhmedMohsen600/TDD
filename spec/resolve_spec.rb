@@ -25,4 +25,34 @@ describe Resolve do
       end
     end
   end
+
+  describe '#fizzbuzz' do
+    context 'when the input is a multiple of 3 and 5' do
+      it 'returns fizzbuzz' do
+        solver = Resolve.new
+        expect(solver.fizzbuzz(15)).to eq('fizzbuzz')
+      end
+    end
+
+    context 'when the input is a multiple of 5' do
+      it 'returns buzz' do
+        solver = Resolve.new
+        expect(solver.fizzbuzz(10)).to eq('buzz')
+      end
+    end
+
+    context 'when the input is a multiple of 3' do
+      it 'returns fizz' do
+        solver = Resolve.new
+        expect(solver.fizzbuzz(9)).to eq('fizz')
+      end
+    end
+
+    context 'when the input is not a multiple of 3 or 5' do
+      it 'returns the input as a string' do
+        solver = Resolve.new
+        expect(solver.fizzbuzz(2)).to eq('2')
+      end
+    end
+  end
 end
