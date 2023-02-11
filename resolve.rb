@@ -9,4 +9,9 @@ class Resolve
     
         result
       end
+      
+      def reverse(word)
+        word.reverse
+      end
+    
 end
